@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles1.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img src="assets/quantum screen assets/icons/logo used in header.svg" alt=""></div>
+        <div class="nav-icons">
+            <div class="nav-links" id="navLinks">
+                <a href="#">Dashboard</a>
+                <a href="#">Content <div class="line"></div></a>
+                <a href="#">Users <div class="line"></div></a>
+                <a href="#">Report <div class="line"></div></a>
+                <a href="#">Admin <div class="line"></div></a>
+            </div>
+            <div class="icons">
+                <div class="alert-icon">
+                    <div class="alert-icon">
+                        <div class="notification" id="alertCounts"></div>
+                        <div id="alertPanel" class="alert-panel">
+                            <div class="alert-list">
+                                <div class="alert-item">
+                                    <div class="alert-info">
+                                        <div class="alert-title">System Update</div>
+                                        <div class="alert-desc">System maintenance scheduled for 22nd Nov</div>
+                                        <div class="alert-meta">15-Sep-2018 at 07:21 pm</div>
+                                    </div>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="alert-item">
+                                    <div class="alert-info">
+                                        <div class="alert-title">New Feature</div>
+                                        <div class="alert-desc">New dashboard feature released</div>
+                                        <div class="alert-meta">14-Sep-2018 at 10:00 am</div>
+                                    </div>
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" />
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="alert-actions">
+                                <button class="show-all-btn">SHOW ALL</button>
+                                <button class="create-new-btn">CREATE NEW</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="announcements-icon">
+                    <div id="announcementPanel" class="announcement-panel">
+                        <div class="announcement-list">
+                            <div class="announcement-item">
+                                <div class="announcement-info">
+                                    <div class="announcement-title">PA: Wilson Kumar</div>
+                                    <div class="announcement-desc">No classes will be held on 21st Nov</div>
+                                    <div class="announcement-meta">2 files are attached &nbsp;|&nbsp; 15-Sep-2018 at
+                                        07:21 pm</div>
+                                </div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </div>
+                            <!-- Example for one item -->
+                            <div class="announcement-item">
+                                <div class="announcement-info">
+                                    <div class="announcement-title">PA: Wilson Kumar</div>
+                                    <div class="announcement-desc">No classes will be held on 21st Nov</div>
+                                    <div class="announcement-meta">2 files are attached &nbsp;|&nbsp; 15-Sep-2018 at
+                                        07:21 pm</div>
+                                </div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-info">
+                                    <div class="announcement-title">PA: Wilson Kumar</div>
+                                    <div class="announcement-desc">No classes will be held on 21st Nov</div>
+                                    <div class="announcement-meta">2 files are attached &nbsp;|&nbsp; 15-Sep-2018 at
+                                        07:21 pm</div>
+                                </div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-info">
+                                    <div class="announcement-title">PA: Wilson Kumar</div>
+                                    <div class="announcement-desc">No classes will be held on 21st Nov</div>
+                                    <div class="announcement-meta">2 files are attached &nbsp;|&nbsp; 15-Sep-2018 at
+                                        07:21 pm</div>
+                                </div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </div>
+                            <div class="announcement-item">
+                                <div class="announcement-info">
+                                    <div class="announcement-title">PA: Wilson Kumar</div>
+                                    <div class="announcement-desc">No classes will be held on 21st Nov</div>
+                                    <div class="announcement-meta">2 files are attached &nbsp;|&nbsp; 15-Sep-2018 at
+                                        07:21 pm</div>
+                                </div>
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" />
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="show-all-btn">SHOW ALL</button>
+                            <button class="create-new-btn">CREATE NEW</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-icon"></div>
+            </div>
+        </div>
+
+
+        <!-- ...existing code... -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- Add this after your hamburger in the header -->
+        <div id="dropdownMenu" class="dropdown-menu">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li>
+                    <a href="#" class="expand" onclick="toggleSubMenu(event, 'dropdownContentSub')">Content <span
+                            class="arrow">&#9662;</span></a>
+                    <ul class="submenu" id="dropdownContentSub">
+                        <li><a href="#">Course Catalog</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="expand" onclick="toggleSubMenu(event, 'dropdownUsersSub')">Users <span
+                            class="arrow">&#9662;</span></a>
+                    <ul class="submenu" id="dropdownUsersSub">
+                        <li><a href="#">User List</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="expand" onclick="toggleSubMenu(event, 'dropdownReportsSub')">Reports <span
+                            class="arrow">&#9662;</span></a>
+                    <ul class="submenu" id="dropdownReportsSub">
+                        <li><a href="#">Report 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="expand" onclick="toggleSubMenu(event, 'dropdownAdminSub')">Admin <span
+                            class="arrow">&#9662;</span></a>
+                    <ul class="submenu" id="dropdownAdminSub">
+                        <li><a href="#">Admin Panel</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- ...existing code... -->
+    </header>
+    <main>
+        <div class="main-section1">
+            <div class="courses"><img src="./assets/quantum screen assets/icons/courses.svg" alt="">
+                <b style="font-size: 24px;">4</b><span style="font-size: 16px; font-weight: 500;">Courses</span>
+            </div>
+            <div class="classes"> <img src="./assets/quantum screen assets/icons/classes.svg" alt="">
+                <b style="font-size: 24px;">4</b><span style="font-size: 16px; font-weight: 500;">Classes</span>
+            </div>
+        </div>
+        <div class="main-section2">
+            <div class="show">Showing 4 of 4 courses</div>
+            <div class="sort">
+                Sort by:
+                <select
+                    style="border-top: none;border-left: none; border-right: none; background-color: #EEEEEE; border-bottom: 6px; border-color: black;">
+                    <option value="recent">Course name</option>
+                </select>
+                <img style="margin-left: 20px;" src="assets/quantum screen assets/icons/sort.svg" alt="">
+            </div>
+        </div>
+        <div class="main-section3">
+            <div class="container">
+
+                <div class="img" id="img1"><img src="assets/quantum screen assets/images/imageMask.png" alt=""></div>
+                <div class="details">
+                    <div class="info1">
+                        <p>Acceleration</p><img style="margin-right:20px ;"
+                            src="assets/quantum screen assets/icons/favourite.svg" alt="">
+                    </div>
+                    <div class="info2">
+                        <p style="margin-right: 10px;">Physics</p>
+                        <p class="divide"></p>
+                        <p>Grade 7 <span>+2</span></p>
+                    </div>
+                    <div class="info3">
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">4</b> units</p>
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">18</b> lessons</p>
+                        <p><b style="font-weight: bolder; color: black;">24</b> topics</p>
+                    </div>
+                    <div class="info4">
+                        <p><select name="Mr. Flank Class B" id="">
+                                <option value="">Mr. Flank Class B</option>
+                            </select></p>
+                    </div>
+                    <div class="info5" style="display: flex;">
+                        <p style="margin-right: 5px;">50 Students</p>
+                        <p class="divide" style="margin-right: 5px;"></p>
+                        <p>21-Jan-2020 - 21-Aug-2020</p>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom1"></div>
+                    <div class="bottom2"></div>
+                    <div class="bottom3"></div>
+                    <div class="bottom4"></div>
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="img" id="img1"><img src="assets/quantum screen assets/images/imageMask-1.png" alt=""></div>
+                <div class="details">
+                    <div class="info1">
+                        <p>Displacement, Velocity and Speed</p><img style="margin-right:20px ;"
+                            src="assets/quantum screen assets/icons/favourite.svg" alt="">
+                    </div>
+                    <div class="info2">
+                        <p style="margin-right: 10px;">Physics</p>
+                        <p class="divide"></p>
+                        <p>Grade 6 <span>+3</span></p>
+                    </div>
+                    <div class="info3">
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">2</b> units</p>
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">15</b> lessons</p>
+                        <p><b style="font-weight: bolder; color: black;">20</b> topics</p>
+                    </div>
+                    <div class="info4">
+                        <p><select name="Mr. Flank Class B" id="gray">
+                                <option style="color: #222222;">No Classes</option>
+                            </select></p>
+                    </div>
+                    <!-- <div class="info5" style="display: flex;">
+                        <p style="margin-right: 5px;">50 Students</p>
+                        <p class="divide" style="margin-right: 5px;"></p>
+                        <p>21-Jan-2020 - 21-Aug-2020</p>
+                    </div> -->
+                </div>
+                <div class="bottom">
+                    <div class="bottom1"></div>
+                    <div class="bottom2"></div>
+                    <div class="bottom3"></div>
+                    <div class="bottom4"></div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="img" id="img1"><img src="assets/quantum screen assets/images/imageMask-2.png" alt=""></div>
+                <div class="details">
+                    <div class="info1">
+                        <p>Introduction to Biology: Micro organisms and how they affec...
+                        </p><img style="margin-right:20px ;" src="assets/quantum screen assets/icons/favourite.svg"
+                            alt="">
+                    </div>
+                    <div class="info2">
+                        <p style="margin-right: 10px;">Biology</p>
+                        <p class="divide"></p>
+                        <p>Grade 4 <span>+1</span></p>
+                    </div>
+                    <div class="info3">
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">5</b> units</p>
+                        <p style="margin-right: 5px;"><b style="font-weight: bolder; color: black;">16</b> lessons</p>
+                        <p><b style="font-weight: bolder; color: black;">22</b> topics</p>
+                    </div>
+                    <div class="info4">
+                        <p><select name="Mr. Flank Class B" id="">
+                                <option value="">All Classes</option>
+                            </select></p>
+                    </div>
+                    <div class="info5" style="display: flex;">
+                        <p style="margin-right: 5px;">500 Students</p>
+                        <!-- <p class="divide" style="margin-right: 5px;"></p>
+                        <p>21-Jan-2020 - 21-Aug-2020</p> -->
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom1"></div>
+                    <div class="bottom2"></div>
+                    <div class="bottom3"></div>
+                    <div class="bottom4"></div>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="img" id="img1"><img src="assets/quantum screen assets/images/imageMask-3.png" alt=""></div>
+                <div class="details">
+                    <div class="info1">
+                        <p>Introduction to High School Mathematics</p><img style="margin-right:20px ;"
+                            src="assets/quantum screen assets/icons/favourite.svg" alt="">
+                    </div>
+                    <div class="info2">
+                        <p style="margin-right: 10px;">Mathematics</p>
+                        <p class="divide"></p>
+                        <p>Grade 8 <span>+3</span></p>
+                    </div>
+                    <!-- <div class="info3">
+                        <p style="margin-right: 5px;">4 units</p>
+                        <p style="margin-right: 5px;">18 lessons</p>
+                        <p>24 topics</p>
+                    </div> -->
+                    <div class="info4">
+                        <p><select name="Mr. Flank Class B" id="">
+                                <option value="">Mr. Flank Class B</option>
+                            </select></p>
+                    </div>
+                    <div class="info5" style="display: flex;">
+                        <p style="margin-right: 5px;">44 Students</p>
+                        <p class="divide" style="margin-right: 5px;"></p>
+                        <p>14-Oct-2019 - 20-Oct-2020</p>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="bottom1"></div>
+                    <div class="bottom2"></div>
+                    <div class="bottom3"></div>
+                    <div class="bottom4"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-top">
+            <div class="About">About</div>
+            <div class="divide"></div>
+            <div class="Contact">Contact Us</div>
+        </div>
+        <div class="footer-bottom">
+            <div> <img src="assets/quantum screen assets/icons/logo used in footer.svg" alt="" class="logo-footer">
+            </div>
+            <div class="divide"></div>
+            <div class="copyright">Copyright 2020-2021</div>
+            <div class="copyright1">Zeus Systems Pvt. Ltd.</div>
+            <div class="copyright2">All rights reserved</div>
+        </div>
+    </footer>
+    <script>
+        // ...existing code...
+        document.querySelector('.announcements-icon').onclick = function (e) {
+            e.stopPropagation();
+            document.getElementById('announcementPanel').classList.toggle('active');
+        };
+
+        // Close panel when clicking outside
+        document.addEventListener('click', function (e) {
+            var panel = document.getElementById('announcementPanel');
+            if (panel.classList.contains('active')) {
+                panel.classList.remove('active');
+            }
+        });
+
+        // Prevent panel from closing when clicking inside
+        document.getElementById('announcementPanel').onclick = function (e) {
+            e.stopPropagation();
+        };
+        // ...existing code...
+
+        // ...existing code...
+        function countAnnouncementCheckboxes() {
+            const checkboxes = document.querySelectorAll('#announcementPanel .custom-checkbox input[type="checkbox"]');
+            let ticked = 0, unticked = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) ticked++;
+                else unticked++;
+            });
+            return { ticked, unticked };
+        }
+
+        // Function to update the div with the new number
+        function updateAnnouncemnt() {
+            const announcemntCounts = document.getElementById('announcemntCounts');
+            announcemntCounts.innerText = countAnnouncementCheckboxes().ticked;;
+        }
+        setInterval(updateAnnouncemnt, 1000);
+
+        // Example usage:
+        // const counts = countAnnouncementCheckboxes();
+        // console.log('Ticked:', counts.ticked, 'Unticked:', counts.unticked);
+        // ...existing code...
+    </script>
+    <script>// ...existing code...
+        document.querySelector('.alert-icon').onclick = function (e) {
+            e.stopPropagation();
+            document.getElementById('alertPanel').classList.toggle('active');
+        };
+
+        // Close alert panel when clicking outside
+        document.addEventListener('click', function (e) {
+            var panel = document.getElementById('alertPanel');
+            if (panel && panel.classList.contains('active')) {
+                panel.classList.remove('active');
+            }
+        });
+
+        // Prevent alert panel from closing when clicking inside
+        document.getElementById('alertPanel').onclick = function (e) {
+            e.stopPropagation();
+        };
+
+        // Count checked/unchecked checkboxes in alert panel
+        function countAlertCheckboxes() {
+            const checkboxes = document.querySelectorAll('#alertPanel .custom-checkbox input[type="checkbox"]');
+            let ticked = 0, unticked = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) ticked++;
+                else unticked++;
+            });
+            return { ticked, unticked };
+        }
+
+        // Update alert count badge
+        function updateAlertCount() {
+            const alertCounts = document.getElementById('alertCounts');
+            alertCounts.innerText = countAlertCheckboxes().ticked;
+        }
+        setInterval(updateAlertCount, 1000);
+        // ...existing code...</script>
+</body>
+
+<!-- ...existing code... -->
+<script>
+    // Dropdown menu toggle
+    document.querySelector('.hamburger').onclick = function (e) {
+        e.stopPropagation();
+        document.getElementById('dropdownMenu').classList.toggle('active');
+    };
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (e) {
+        var menu = document.getElementById('dropdownMenu');
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active');
+        }
+    });
+
+    // Prevent dropdown from closing when clicking inside
+    document.getElementById('dropdownMenu').onclick = function (e) {
+        e.stopPropagation();
+    };
+
+    // Submenu toggle (reuse your function, but works for dropdown)
+    function toggleSubMenu(e, id) {
+        e.preventDefault();
+        var submenu = document.getElementById(id);
+        submenu.classList.toggle('active');
+        var link = e.currentTarget;
+        link.classList.toggle('open');
+    }
+
+</script>
+<!-- ...existing code... -->
+
+</html>
