@@ -58,6 +58,7 @@
                     </div>
                 </div>
                 <div class="announcements-icon">
+                        <div class="notification" id="announcementCounts"></div>
                     <div id="announcementPanel" class="announcement-panel">
                         <div class="announcement-list">
                             <div class="announcement-item">
@@ -392,11 +393,18 @@
         }
 
         // Function to update the div with the new number
-        function updateAnnouncemnt() {
-            const announcemntCounts = document.getElementById('announcemntCounts');
-            announcemntCounts.innerText = countAnnouncementCheckboxes().ticked;;
-        }
-        setInterval(updateAnnouncemnt, 1000);
+// ...existing code...
+
+// Function to update the announcement badge with the correct ID
+function updateAnnouncementCount() {
+    const announcementCounts = document.getElementById('announcementCounts');
+    if (announcementCounts) {
+        announcementCounts.innerText = countAnnouncementCheckboxes().ticked;
+    }
+}
+setInterval(updateAnnouncementCount, 1000);
+
+// ...remove or comment out the old updateAnnouncemnt function and its setInterval...
 
         // Example usage:
         // const counts = countAnnouncementCheckboxes();
@@ -404,18 +412,52 @@
         // ...existing code...
     </script>
     <script>// ...existing code...
-        document.querySelector('.alert-icon').onclick = function (e) {
+        function setupHoverPanel(iconSelector, panelSelector, activeClass = 'active') {
+            const icon = document.querySelector(iconSelector);
+            const panel = document.querySelector(panelSelector);
+            let hover = false;
+
+            function showPanel() {
+                panel.classList.add(activeClass);
+            }
+            function hidePanel() {
+                panel.classList.remove(activeClass);
+            }
+
+            icon.addEventListener('mouseenter', showPanel);
+            icon.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!hover) hidePanel();
+                }, 50);
+            });
+
+            panel.addEventListener('mouseenter', () => {
+                hover = true;
+                showPanel();
+            });
+            panel.addEventListener('mouseleave', () => {
+                hover = false;
+                hidePanel();
+            });
+        }
+
+        // Setup for alert, announcement, and hamburger dropdown
+        setupHoverPanel('.alert-icon', '#alertPanel');
+        setupHoverPanel('.announcements-icon', '#announcementPanel');
+        setupHoverPanel('.hamburger', '#dropdownMenu', 'active');
+        // Prevent dropdown from closing when clicking inside
+        document.getElementById('dropdownMenu').onclick = function (e) {
             e.stopPropagation();
-            document.getElementById('alertPanel').classList.toggle('active');
         };
 
-        // Close alert panel when clicking outside
-        document.addEventListener('click', function (e) {
-            var panel = document.getElementById('alertPanel');
-            if (panel && panel.classList.contains('active')) {
-                panel.classList.remove('active');
-            }
-        });
+        // Submenu toggle (reuse your function, but works for dropdown)
+        function toggleSubMenu(e, id) {
+            e.preventDefault();
+            var submenu = document.getElementById(id);
+            submenu.classList.toggle('active');
+            var link = e.currentTarget;
+            link.classList.toggle('open');
+        }
 
         // Prevent alert panel from closing when clicking inside
         document.getElementById('alertPanel').onclick = function (e) {
@@ -443,36 +485,6 @@
 </body>
 
 <!-- ...existing code... -->
-<script>
-    // Dropdown menu toggle
-    document.querySelector('.hamburger').onclick = function (e) {
-        e.stopPropagation();
-        document.getElementById('dropdownMenu').classList.toggle('active');
-    };
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (e) {
-        var menu = document.getElementById('dropdownMenu');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-        }
-    });
-
-    // Prevent dropdown from closing when clicking inside
-    document.getElementById('dropdownMenu').onclick = function (e) {
-        e.stopPropagation();
-    };
-
-    // Submenu toggle (reuse your function, but works for dropdown)
-    function toggleSubMenu(e, id) {
-        e.preventDefault();
-        var submenu = document.getElementById(id);
-        submenu.classList.toggle('active');
-        var link = e.currentTarget;
-        link.classList.toggle('open');
-    }
-
-</script>
 <!-- ...existing code... -->
 
 </html>
